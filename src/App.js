@@ -1,63 +1,38 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import number from 'easy-number-formatter';
+import React from "react";
+import Home from "./components/Home";
+import CountriesList from "./components/CountriesList";
+import { BrowserRouter,Link,Routes,Route, useParams } from "react-router-dom";
+import CountrySingle from "./components/CountrySingle";
+const RouteWrapper = (props)=>{
+    const params = useParams();
+    return <CountrySingle params={params}{...props} />
+}
 
-class App extends Component {
-  state={
-    data:[],
-    searchInput: "",
-    isLoading: true,
-  }
+const App = () => {
+  return (
+      
+    <BrowserRouter>
+    <nav>
+        <ul>
+            <li>
+                <Link to="/">Home</Link>
+            </li>
+            <li>
+                <Link to="/countries">Countries</Link>
+            </li>
+            
+        </ul>
+    </nav>
 
-  componentDidMount(){
-    axios.get("https://restcountries.com/v2/all?fields=name,capital,flags,languages,population,currencies").then((res)=>{this.setState({data:res.data,isLoading:false });
-    console.log(this.state.data);
-  });
-}
-searchHandler=(e)=>{
-  this.setState({
-    searchInput : e.target.value,
-  });
-  console.log(this.state.searchInput)
-}
-  render() {
-    if(this.state.isLoading){
-     return( <div>
-        <p className="spin"></p>
-        </div>
-     );
-    }
-    if(!this.state.isLoading){
-    return (
-      <>
-      <input type="text" name="search" onChange={this.searchHandler} placeholder="search for country" />
-      <div className="App">
-       {this.state.data
-       .filter((c) => {
-         return c.name
-         .toLowerCase()
-         .includes(this.state.searchInput.toLowerCase());
-       })
-       .map((c=> 
-       <div className="countries" key={c.name}>
-         <div className="upper"><p><img src={c.flags.png} alt="flag" /><h2>{c.name}</h2>  </p>
-          <p>Capital:  <strong> {c.capital} </strong></p>
-          </div>
-          <p>Language(s):{c.languages.map((lang) =>(
-            <strong> {lang.name} </strong>
-          ))} </p>
-          <p>Currencies:{c.currencies.map((mon,i) =>(
-            <strong key={i}>{mon.name} {mon.symbol} </strong>
-          ))} </p>
-           <p>Population: <strong className="low"> {number.formatNumber(c.population)}</strong></p>
-          
-          </div>
-          ))}
-      </div>
-      </>
-    );
-  }
-  }
-}
+    <Routes>
+        <Route index element={<Home />} />
+        <Route path="/countries" element={<CountriesList />} />
+        <Route path="/countries/:name" element={<RouteWrapper />} />
+      
+      </Routes>
+
+    </BrowserRouter>
+  );
+};
 
 export default App;

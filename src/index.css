@@ -78,7 +78,6 @@ padding-bottom: 5px;
   box-sizing: border-box;
   
 }
-
 body {
   margin: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -88,25 +87,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
 }
-/* BrowserRouter {
-  background-image: url('https://www.jquerypost.com/demo/animated-world-map-with-round-circle-in-css-847/earth.jpg');
-} */
-img {
+/* home page*/
+li.linkhome{
+  margin-bottom: 30px;
+}
+li.linkcountries{
+  margin-top: 20px;
+}
+.mainhome h1{
+  text-align: center;
+  color: rgb(58, 116, 155);
+}
+.mainhome p,div.info{
+  padding:1rem 5rem 1rem 10rem;
+  font-family: 'Roboto'sans-serif;
+  font-size: 1.6rem;
+}
+.mainhome p{
+  text-align: left;
+}
+div.info{
+  text-align: center;
+}
+/* search input*/
+input[type="text" ] {
+  padding: 1px 1px 2px 15px;
+  width: 300px;
   height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  box-shadow: 0 0 5px #333;
+  font-family: 'Roboto' sans-serif;
+  font-size: 1rem;
+}
+input[type="text" ]{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  border: 1px solid rgb(58, 116, 155);
+  box-shadow: 1 1px 0 gray;
 }
 
 .countries {
   display: grid;
   grid-gap: 1rem;
-  
 }
-
 .country {
   box-shadow: 0 0 5px rgb(92, 92, 92);
   border-radius: 5px;
@@ -115,14 +137,30 @@ img {
 
 .country h2,
 .country h3 {
-  background-color: rgb(106, 106, 106);
+  background-color: rgb(103, 130, 177);
   padding: 1rem;
+  padding-left: 5rem;
   margin: 0;
   color: white;
 }
+.country h2{
+  border-top-left-radius: 5px;
+}
 
 .country h3 {
-  padding: 0 1rem 1rem;
+  padding: 0rem 1rem 1rem 5rem;
+}
+img {
+  height: 40px;
+  width: 60px;
+  /* border-radius: 50%; */
+  border-top-left-radius:5px;
+  position: absolute;
+  /* top: -5px;
+  right: -5px; */
+  top:0;
+  background-color: white;
+  box-shadow: 0 0 5px #333;
 }
 
 .cardContent {
@@ -137,11 +175,14 @@ img {
   text-transform: lowercase;
 }
 
-@media (min-width: 575.98px) {
+@media (max-width: 575.98px) {
   .countries {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 1rem;
+  }
+  .mainhome p,div.info{
+    padding: 20px;
   }
 }
 
@@ -151,6 +192,9 @@ img {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
   }
+  .mainhome p,div.info{
+    padding: 30px;
+  }
 }
 
 @media (min-width: 1199.98px) {
@@ -158,5 +202,8 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1rem;
+  }
+  .mainhome p,div.info{
+    padding: 5rem;
   }
 }

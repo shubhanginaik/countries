@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import CountriesList from "./components/CountriesList";
 import { BrowserRouter,Link,Routes,Route, useParams } from "react-router-dom";
 import CountrySingle from "./components/CountrySingle";
+import "./index.css"
 const RouteWrapper = (props)=>{
     const params = useParams();
     return <CountrySingle params={params}{...props} />
@@ -14,10 +15,10 @@ const App = () => {
     <BrowserRouter>
     <nav>
         <ul>
-            <li>
-                <Link to="/">Home</Link>
+            <li className="linkhome">
+                <Link to="/" >Home</Link>
             </li>
-            <li>
+            <li className="linkcountries">
                 <Link to="/countries">Countries</Link>
             </li>
             

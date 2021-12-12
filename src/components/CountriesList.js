@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
  import "../loader.css";
+ import "../index.css"
 import CountriesCard from "./CountriesCard";
 
 class CountriesList extends Component {
@@ -16,8 +17,11 @@ class CountriesList extends Component {
         "https://restcountries.com/v2/all?fields=name,capital,flags,languages,currencies,population"
       )
       .then((res) => {
-        this.setState({ data: res.data, isLoading: false });
-        console.log(this.state.data);
+        this.setState({ 
+          data: res.data,
+          isLoading: false 
+        });
+        
       });
   }
 
@@ -25,7 +29,6 @@ class CountriesList extends Component {
     this.setState({
       searchInput: e.target.value,
     });
-    console.log(this.state.searchInput);
   }
 
   render() {
@@ -44,22 +47,27 @@ class CountriesList extends Component {
 
     if (!this.state.isLoading) {
       return (
-        <div className="countries">
-          <input
+        <>
+        <input
             type="text"
             name="search"
-            onChange={this.searchHandler.bind(this)}
+            placeholder="country..."
+            onChange={this.searchHandler.bind(this)
+            }
           />
+        <div className="countries">
+          
           {this.state.data
             .filter((c) => {
               return c.name
                 .toLowerCase()
                 .includes(this.state.searchInput.toLowerCase());
             })
-            .map((something) => (
-              <CountriesCard {...something} key={something.name} />
+            .map((country) => (
+              <CountriesCard {...country} key={country.name} />
             ))}
         </div>
+        </>
       );
     }
   }

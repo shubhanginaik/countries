@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
 function getCountry(capital) {
   return axios.get(`https://restcountries.com/v2/capital/${capital}`);
 }
 
 function getWeather(capital) {
   return axios.get(
-    `https://api.openweathermap.org/data/2.5/weather?q=${capital}&appid=${process.env.REACT_APP_OPENWEATHER_KEY}&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${capital}&appid=${process.env.REACT_APP_WEATHER_APP_KEY}&units=metric`
   );
 }
 
@@ -50,13 +51,33 @@ class CountrySingle extends Component {
 
     if (!this.state.isLoading) {
       return (
-        <div>
-          Right now it is {this.state.weather.main.temp} degrees in{" "}
-          {this.state.country.capital}
+        <div className="countrySingleWrapper">
+          <div>
+          <a href="https://openweathermap.org/" alt="openweatherapp">
+            openweathermap</a>
+          <h1>Real-Time & Historical
+              World Weather Data API
+              </h1>
+              </div>
+            <div className="countrySingle">
+            <strong className="capital">{this.state.country.capital}</strong>
+         <p> Right now it is <strong>{this.state.weather.main.temp}</strong> degrees </p>
+          
+          <p>
+          It feels like <strong>{this.state.weather.main.feels_like}
+          </strong>
+          </p>
+          <div>
           <img
             src={`http://openweathermap.org/img/wn/${this.state.weather.weather[0].icon}@2x.png`}
             alt={this.state.weather.weather[0].description}
           />
+          </div>
+          <p>
+            
+          <strong className="capital">{this.state.country.name}</strong>
+          </p>
+          </div>
         </div>
       );
     }

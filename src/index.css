@@ -74,6 +74,7 @@ padding-bottom: 5px;
 .low{
   text-transform: lowercase;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 * {
   box-sizing: border-box;
   
@@ -99,7 +100,6 @@ li.linkcountries{
   color: rgb(58, 116, 155);
 }
 .mainhome p,div.info{
-  padding:1rem 5rem 1rem 10rem;
   font-family: 'Roboto'sans-serif;
   font-size: 1.6rem;
 }
@@ -150,17 +150,67 @@ input[type="text" ]{
 .country h3 {
   padding: 0rem 1rem 1rem 5rem;
 }
-img {
+.country img {
   height: 40px;
   width: 60px;
-  /* border-radius: 50%; */
   border-top-left-radius:5px;
   position: absolute;
-  /* top: -5px;
-  right: -5px; */
   top:0;
   background-color: white;
   box-shadow: 0 0 5px #333;
+}
+/* country single*/
+.countrySingleWrapper{
+  border: 1px solid black;
+  text-align: center;
+  justify-content: center;
+  height: 500px;
+  background: url("./Sky-cloudy-weather-Background\ \(1\).jpg");
+}
+
+.countrySingle{
+  float: right;
+  margin-top: 50px;
+  margin-right: 450px;
+  width: 500px;
+  height: 300px;
+  padding: 3rem;
+  text-align: left;
+  border: 2px solid rgb(86, 113, 221);
+  color: white;
+  background-color: #87a8c2;
+  position: relative;
+  
+}
+.countrySingleWrapper h1{
+  text-align: center;
+  padding: 5px;
+  margin: 10px;
+}
+.countrySingle a{
+  margin: 10px;
+}
+.capital {
+  float: right;
+  margin: 1rem 1rem 0 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.5rem;
+}
+.countrySingle img{
+  position: absolute;
+  height: 40px;
+  width: 60px;
+  margin: 20px;
+  animation-name: icon;
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+@keyframes icon {
+  0%   { left:100px; }
+  25%  { left:200px; }
+  50%  { left:250px; }
+  75%  { left:200px; }
+  100% { left:100px; }
 }
 
 .cardContent {
@@ -174,6 +224,7 @@ img {
 .low {
   text-transform: lowercase;
 }
+
 
 @media (max-width: 575.98px) {
   .countries {
@@ -204,6 +255,6 @@ img {
     grid-gap: 1rem;
   }
   .mainhome p,div.info{
-    padding: 5rem;
+    padding: 2rem;
   }
 }

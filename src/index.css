@@ -191,10 +191,13 @@ input[type="text" ]{
   margin: 10px;
 }
 .capital {
-  float: right;
+  float: center;
   margin: 1rem 1rem 0 0;
   font-family: 'Roboto Slab', serif;
   font-size: 1.5rem;
+}
+p strong.capital{
+  color: blue;
 }
 .countrySingle img{
   position: absolute;

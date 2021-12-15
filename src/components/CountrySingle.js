@@ -60,23 +60,23 @@ class CountrySingle extends Component {
               </h1>
               </div>
             <div className="countrySingle">
+            <p>
+            <strong className="capital">{this.state.country.name}</strong>
+            </p>
             <strong className="capital">{this.state.country.capital}</strong>
          <p> Right now it is <strong>{this.state.weather.main.temp}</strong> degrees </p>
           
           <p>
-          It feels like <strong>{this.state.weather.main.feels_like}
-          </strong>
-          </p>
+          It feels like <strong>{this.state.weather.main.feels_like }
+          </strong> 
+           degrees 
+           </p>
           <div>
           <img
             src={`http://openweathermap.org/img/wn/${this.state.weather.weather[0].icon}@2x.png`}
             alt={this.state.weather.weather[0].description}
           />
           </div>
-          <p>
-            
-          <strong className="capital">{this.state.country.name}</strong>
-          </p>
           </div>
         </div>
       );

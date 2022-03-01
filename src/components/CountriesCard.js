@@ -4,7 +4,7 @@ import React from "react";
 import number from "easy-number-formatter";
 import {Link} from "react-router-dom"
 
-const CountriCard = ({
+const CountrisCard = ({
   name,
   capital,
   languages,
@@ -13,7 +13,7 @@ const CountriCard = ({
   flags,
 }) => {
   return (
-    <Link to={capital}>
+    // <Link to={capital}>
     <div className="country" key={name}>
       <h2> {name}</h2> <h3>{capital}</h3>
       <img src={flags.png} alt={name} />
@@ -26,11 +26,11 @@ const CountriCard = ({
         </p>
         <p>
           Currencies:
-          {currencies.map((mon, i) => (
+          {/* {currencies.map((mon, i) => (
             <span key={i}>
               {mon.name} - {mon.symbol}
             </span>
-          ))}
+          ))} */}
         </p>
         <p>
           Population:
@@ -38,8 +38,8 @@ const CountriCard = ({
         </p>
       </div>
     </div>
-    </Link>
+    // </Link>
   );
 };
 
-export default CountriCard;
+export default CountrisCard;

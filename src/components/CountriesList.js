@@ -18,9 +18,10 @@ class CountriesList extends Component {
       )
       .then((res) => {
         this.setState({ 
-          data: res.data,
+          data:res.data,
           isLoading: false 
         });
+
         
       });
   }
@@ -58,7 +59,8 @@ class CountriesList extends Component {
         <div className="countries">
           
           {this.state.data
-            .filter((c) => {
+          
+            .filter((c) => {  
               return c.name
                 .toLowerCase()
                 .includes(this.state.searchInput.toLowerCase());
